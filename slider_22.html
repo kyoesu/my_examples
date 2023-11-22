@@ -57,21 +57,23 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 275px;
+  width: 500px;
   z-index: 100;
 }
 
 .button-container .button {
-  color: #fff;
+  color: #ff0000;
   font-size: 32px;
   cursor: pointer;
   position: relative;
-  opacity: 0.75;
+  opacity: 0;
   transition: all 300ms ease-in-out;
 }
 
 .button-container .button:hover {
-  opacity: 1;
+    background: linear-gradient(90deg, #060328 0%, #1b026300 100%);
+  opacity: 0.5;
+  
 }
 
 .button-container .button:before {
@@ -80,10 +82,9 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 50px;
-  height: 50px;
-  background-color: rgba(0, 0, 0, 1);
-  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  /*border-radius: 50%;*/
   z-index: -99;
 }
 
@@ -93,20 +94,26 @@ body {
 
 .button-container .button:nth-child(2) {
   float: right;
+  
+}
+.fa-right::before{
+    background: linear-gradient(90deg, #060328 0%, #1b026300 100%);
+}
+.fa-left::before{
+    background: linear-gradient(270deg, #060328 0%, #1b026300 100%);
 }
 </style>
 
 <div class="items">
     <div class="item active">
-  <br><br><br><br><br><br>
-  <center>1</center>
-        <!--<img src="http://via.placeholder.com/500x500">-->
+        <br><br><br><br><br><br>
+        <center>1</center>
     </div>
     <div class=" item next">
-  <br><br><br><br><br><br>
-  <center>2</center>
+    <br><br><br><br><br><br>
+    <center>2</center>
         
-    </div>
+</div>
     <div class="item">
   <br><br><br><br><br><br>
   <center>3</center>
@@ -127,22 +134,21 @@ body {
  <br><br><br><br><br><br>
   <center>7</center>
     </div>
+
     <div class="button-container">
-        <div class="button"><i class="fas fa-angle-left"></i></div>
-        <div class="button"><i class="fas fa-angle-right"></i></div>
+        <div class="button fa-left"></div>
+        <div class="button fa-right"></div>
     </div>
 </div>
 
 <script>
-
-// I will be creating a different pen with touch support but right // now I have no time for it due to school
 
 const slider = document.querySelector(".items");
 		const slides = document.querySelectorAll(".item");
 		const button = document.querySelectorAll(".button");
 
 		let current = 0;
-		let prev = 4;
+		let prev = 6;
 		let next = 1;
 
 		for (let i = 0; i < button.length; i++) {
@@ -151,7 +157,7 @@ const slider = document.querySelector(".items");
 
 		const gotoPrev = () => current > 0 ? gotoNum(current - 1) : gotoNum(slides.length - 1);
 
-		const gotoNext = () => current < 4 ? gotoNum(current + 1) : gotoNum(0);
+		const gotoNext = () => current < 6 ? gotoNum(current + 1) : gotoNum(0);
 
 		const gotoNum = number => {
 			current = number;
@@ -164,12 +170,12 @@ const slider = document.querySelector(".items");
 				slides[i].classList.remove("next");
 			}
 
-			if (next == 5) {
+			if (next == 7) {
 				next = 0;
 			}
 
 			if (prev == -1) {
-				prev = 4;
+				prev = 6;
 			}
 
 			slides[current].classList.add("active");
