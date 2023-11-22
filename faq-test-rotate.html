@@ -1,0 +1,190 @@
+<style>
+    .container-faq {
+      margin: 0 auto;
+      padding: 4rem;
+    
+      /*background: linear-gradient(149deg,#6da9e0 0%, #9a77d1 100%);*/
+    }
+    h3 {
+        font-size: 40px;
+      color: #000000;
+      padding: 1.3rem;
+      margin: 0;
+    }
+    .accordion a {
+      position: relative;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      width: 100%;
+      padding: 1rem 3rem 1rem 1rem;
+      color: #000000;/*text*/
+      font-size: 1.15rem;
+      font-weight: 400;
+      border-bottom: 1px solid #000000;/*line*/
+      text-decoration: none;
+    }
+    .accordion a:hover,
+    .accordion a:hover::after {
+      cursor: pointer;
+      color: #000000;/*text*/
+    }
+    .accordion a:hover::after {
+      
+      border: 0px solid #2d252d0d;/*circle*/
+      background-color: #2d252d1a;
+      
+    }
+    .accordion a.active {
+      color: #000000;
+      border-bottom: 1px solid #000000;
+    }
+    .accordion a::after {
+      font-family: 'Ionicons';
+      content: '\f218';
+      position: absolute;
+      float: right;
+      right: 1rem;
+      font-size: 2rem;
+      color: #a17dcd;/*plus*/
+      padding: 3px;
+      width: 30px;
+      height: 30px;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+      /*border: 1px solid #0116ff;/*circle*/
+      text-align: center;
+      transition: all ease-in-out .3s;
+    }
+    .accordion a.active::after {
+      font-family: 'Ionicons';
+      content: '\f218';
+      rotate: 45deg;;
+      color: #a17dcd;/*  +/-  */
+      /*border: 2px solid #ab04f8;/*circle*/
+      transition: all ease-in-out .3s;
+    }
+    .accordion a:hover:after,
+    .accordion a.active:hover:after {
+      color:#490f91;
+      
+    }
+    .accordion a::before,
+    .accordion a.active::before {
+      animation: accordion-rotate 0.65s 0.085s;
+    }
+    .accordion .content {
+      opacity: 0;
+      padding: 0 1rem;
+      max-height: 0;
+      border-bottom: 1px solid #000000;/*line*/
+      overflow: hidden;
+      clear: both;
+      -webkit-transition: all 0.2s ease 0.15s;
+      -o-transition: all 0.2s ease 0.15s;
+      transition: all 0.2s ease 0.15s;
+    }
+    .accordion .content p {
+      font-size: 1rem;
+      font-weight: 300;
+      color:black;
+    }
+    .accordion .content.active {
+      opacity: 1;
+      padding: 1rem;
+      max-height: 100%;
+      -webkit-transition: all 0.35s ease 0.15s;
+      -o-transition: all 0.35s ease 0.15s;
+      transition: all 0.35s ease 0.15s;
+      
+    }
+
+    @keyframes accordion-rotate{
+      0%{transform: rotate(15deg);}
+      100%{transform: rotate(45deg);}
+    }
+    
+    .ast-single-post .entry-content a, a:not(.ast-comment-edit-reply-wrap a) {
+      text-decoration: none;
+    }
+    </style>
+    <link rel='stylesheet' href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css'>
+    <div class="container-faq">
+    
+        <h3>Часто задаваемые вопросы</h3>
+    
+        <div class="accordion">
+          <div class="accordion-item">
+            <a class="active">Какой режим работы персонального менеджера?</a>
+            <div class="content active">
+              <p>персональный менеджер работает с 8 до 17 мск.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <a>Я уже продаю на маркетплейсе, окажете ли вы мне помощь в улучшении карточек, рекламе?</a>
+            <div class="content">
+              <p>Конечно, мы проведем анализ карточек товара, доработаем дизайн и инфографику (если это потребуется), напишем seo для продвижения по ключевым запросам. Проконсультируем по внешней и внутренней рекламе, а также поможем настроить.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <a>Какую работу выполняет менеджер ВБ?</a>
+            <div class="content">
+              <p>Менеджер Wildberries выполняет все необходимые операции по обслуживанию личного кабинета и предоставляет рекомендации по повышению эффективности вашего магазина.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <a>С чего начинается работа?</a>
+            <div class="content">
+              <p>Работа начинается с анализа бренда и составления стратегии развития. В начале работы согласовываем план действий  и приступаем к работе.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <a>Где я могу задавать вопросы менеджеру?</a>
+            <div class="content">
+              <p>Мы создадим чат в мессенджере, где вы сможете вести диалог с вашим персональным менеджером.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <a>Что будем с кабинетом. если менеджер заболеет, уйдет в отпуск или уволится?</a>
+            <div class="content">
+              <p>Все наши менеджеры обладают высоким уровнем профессионализма и могут взаимозаменяться в случае необходимости. На время отсутствия вашего текущего менеджера, другой сотрудник будет помогать вам в решении вопросов, работая под контролем старшего менеджера смены.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <a>Входит ли реклама в стоимость услуг?</a>
+            <div class="content">
+              <p>В стоимость входит только услуга по настройке рекламы. Мы выбираем с вами каналы продвижения, исходя из вашего бюджета и количества товаров, и полностью настраиваем рекламу «под ключ». Рекламный бюджет вы выделяете дополнительно, ориентируясь на наши рекомендации.</p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <a>Входят ли услуги дизайнера в стоимость?</a>
+            <div class="content">
+              <p>В стоимость входит услуга по написанию технического задания для дизайнера, согласование шаблона. Услуги дизайнера оплачиваются отдельно. </p>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <a>Какие гарантии вы даете?</a>
+            <div class="content">
+              <p>Наша компания стремится к безупречному качеству работы и строгому соблюдению сроков. Мы оказываем поддержку нашим клиентам на регулярной основе. При эффективном сотрудничестве между клиентом и нашим менеджером, рост продаж становится неизбежным.</p>
+            </div>
+          </div>
+        </div>
+    
+    </div>
+    <script>
+    const items = document.querySelectorAll(".accordion a");
+    function toggleAccordion(){
+      this.classList.toggle('active');
+      this.nextElementSibling.classList.toggle('active');
+    }
+    items.forEach(item => item.addEventListener('click', toggleAccordion));
+    
+    </script>
+

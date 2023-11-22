@@ -1,0 +1,193 @@
+<!--<div style=" width:100%; height:200vh; background-color:#6780DA"></div>
+<link href="https://github.hubspot.com/odometer/themes/odometer-theme-default.css" rel="stylesheet">
+<script src="https://github.hubspot.com/odometer/odometer.js"></script>
+
+<div class="counter-start">
+  <p class="odometer" id="odometer1"></p>
+</div>
+<script>
+var isInViewport = function (elem) {
+            var distance = elem.getBoundingClientRect();
+            return (
+                distance.top >= 0 &&
+                distance.left >= 0 &&
+                distance.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                distance.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        };
+        
+        var findMe = document.querySelector('.counter-start');
+
+        window.addEventListener('scroll', function (event) {
+            if (isInViewport(findMe)) {
+                setTimeout(function () {
+                    odometer1.innerHTML = 50000;
+                }, 1000);
+            }
+        }, false);
+</script>-->
+
+
+
+<!--<script>
+  function chpok(id){
+      elem = document.getElementById(id); //находим блок div по его id, который передали в функцию
+      state = elem.style.display; //смотрим, включен ли сейчас элемент
+      if (state =='') elem.style.display='none'; //если включен, то выключаем
+      else elem.style.display=''; //иначе - включаем
+  }
+  </script>
+ 
+  <button onclick="chpok('text')">TEST</button>
+  <div id="text">
+      My Text
+  </div>-->
+<!--
+  <style>
+
+
+
+
+.content {
+
+  border: solid 1px #09c4f3;
+
+}
+
+.hidden {
+  display: none;
+}
+
+
+  </style>
+
+<button class="btn" type="button">
+  Показать элемент
+</button>
+
+<div class="content hidden">
+  Товарищи! постоянное информационно-пропагандистское обеспечение нашей деятельности влечет за собой процесс внедрения и модернизации дальнейших направлений развития. Повседневная практика показывает, что реализация намеченных плановых заданий обеспечивает широкому кругу (специалистов) участие в формировании новых предложений.
+</div>
+
+
+
+<script>
+
+const btn = document.querySelector(".btn");
+const content = document.querySelector(".content");
+
+btn.addEventListener("click", btnClick);
+
+function btnClick() {
+  content.classList.toggle("hidden");
+}
+
+
+</script>-->
+
+<!--<style>
+  .banner__content {
+    background: #3f51b5;
+    height: 30vw;
+  }
+  
+  .banner svg {
+    width: 100%;
+    
+    display: block;
+    
+    height: 20vw;
+  }
+  
+
+  </style>
+  
+  <section class="banner">
+    <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewbox="0 25 160 40" class="waves" style="background: #ffffff;">
+      
+      <defs><path id="wave" d="M-150 53c30.77 0 59.538-20 90-20 31.077 0 60.256 20 90 20 30.77 0 59.23-20 90-20 30.77 0 59.23 20 90 20v20h-360z"/></defs>
+      <g>
+        
+        <use xlink:href="#wave" x="50" y="0" fill="#7986cb"/>
+        <use xlink:href="#wave" x="50" y="2" fill="#5c6bc0"/>
+        <use xlink:href="#wave" x="50" y="4" fill="#3f51b5"/>
+      </g>
+      
+    </svg>
+    <div style="width: 100%; height: 100px;background-color: red;"></div>
+    <div class="banner__content">
+      <h1>Добро пожаловать на сайт</h1>
+    </div>
+    <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewbox="0 25 160 40" class="waves" style="background: #3f51b5;">
+      <defs><path id="wave" d="M-150 53c30.77 0 59.538-20 90-20 31.077 0 60.256 20 90 20 30.77 0 59.23-20 90-20 30.77 0 59.23 20 90 20v20h-360z"/></defs>
+      <g>
+        <use xlink:href="#wave" x="50" y="0" fill="#7986cb"/>
+        <use xlink:href="#wave" x="50" y="2" fill="#5c6bc0"/>
+        <use xlink:href="#wave" x="50" y="4" fill="#ffffff"/>
+      </g>
+    </svg>
+  </section>-->
+<style>
+
+.banner svg>g>use {
+    animation: move 30s linear infinite;
+  }
+  .banner svg>g>use:nth-child(1) {
+    animation-delay: -2s;
+    
+  }
+  
+  .banner svg>g>use:nth-child(2) {
+    animation-delay: -2s;
+    animation-duration: 17s;
+    
+  }
+  
+  .banner svg>g>use:nth-child(3) {
+    animation-delay: -4s;
+    animation-duration: 10s;
+    
+  }
+
+@keyframes move {
+    from {
+      transform: translate(-90px, 0%);
+    }
+  
+    to {
+      transform: translate(90px, 0%);
+    }
+  }
+</style>
+<section class="banner">
+  <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewbox="0 25 160 40" class="waves" style="background: #ffffff;">
+      
+    <defs><path id="wave" d="M-150 53c30.77 0 59.538-20 90-20 31.077 0 60.256 20 90 20 30.77 0 59.23-20 90-20 30.77 0 59.23 20 90 20v20h-360z"/></defs>
+    <g>
+      
+      <use xlink:href="#wave" x="50" y="0" fill="#7986cb"/>
+      <use xlink:href="#wave" x="50" y="2" fill="#5c6bc0"/>
+      <use xlink:href="#wave" x="50" y="4" fill="#7280E7"/>
+    </g>
+    
+  </svg>
+  
+  <div style="width: 100%; height: 1000px;background: linear-gradient(#7280E7 0%, #0500FF 50%, #7280E7 100%)"></div>
+  <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewbox="0 25 160 40" class="waves" style="background:linear-gradient(#7280E7 0%, #A2B8DD 100% );">
+    <defs><path id="wave" d="M-150 53c30.77 0 59.538-20 90-20 31.077 0 60.256 20 90 20 30.77 0 59.23-20 90-20 30.77 0 59.23 20 90 20v20h-360z"/></defs>
+    <g>
+      
+      <use xlink:href="#wave" x="50" y="2" fill="#5c6bc0"/>
+      <use xlink:href="#wave" x="50" y="4" fill="#ffffff"/>
+    </g>
+  </svg>
+</section>
+
+
+
+
+
+
+
+
+

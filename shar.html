@@ -1,0 +1,38 @@
+
+
+
+
+<style>
+	body{
+		background-color: blue;
+	}
+	img {
+		vertical-align: middle;
+		border-style: none;
+	}
+	.em-hero-inner-shape {
+		position: absolute;
+		top: 272px;
+		left: 330px;
+		animation: moveLeftBounce 3s cubic-bezier(0.42, 0.57, 0.44, 0.31) infinite;
+	}
+	@keyframes moveLeftBounce {
+	0% {
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
+		}
+	50% {
+		-webkit-transform: translateX(30px);
+		transform: translateX(30px);
+		}
+	100% {
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
+		}
+}
+</style>
+
+
+<div class="em-hero-inner-shape">
+	<img src="https://html.ditsolution.net/techno/assets/images/slider/shape-1.png" alt="">
+</div>

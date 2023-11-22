@@ -1,0 +1,511 @@
+<style>
+
+ 
+  
+    #carousel-wrapper-price {
+      width: auto;
+      height: auto;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      
+    
+      #menu {
+        height: 875px;
+        width: 922px;
+        overflow: hidden;
+        /*font-weight: 700;*/
+        line-height: 1;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        vertical-align: middle;
+        transition: all 0.6s ease-in-out;
+        
+    
+        #current-option {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          /*transform: translate(-25%, 0%);*/
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          /*background-color: blue;*/
+          overflow: hidden;
+          
+    
+          #current-option-text1 {
+            font-size: 1.6rem;
+            line-height: 3rem;
+            width: 70%;
+            height: 70px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            font-weight: 700;
+           
+          }
+    
+          #current-option-text2 {
+            font-size: 1.2rem;
+            padding: 20px 0px;
+            width: 70%;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            /*justify-content: flex-end;
+            background: #1010db42;
+            border-top: 5px solid;
+            border-color: #8686dd6c;*/
+            line-height: 1.5;
+            min-height: 700px;
+            
+          }
+          #current-option-text4 {
+            font-size: 1.6rem;
+            line-height: 3rem;
+            padding-top: 45px;
+            padding-bottom: 25px;
+            width: 96%;
+            height: auto;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-end;
+            justify-content: flex-end;
+            /*background: #1010db42;
+            border-top: 5px solid;
+            border-color: #8686dd6c;*/
+            line-height: 1.5;
+            font-weight: 700;
+            
+          }
+        }
+    
+        #previous-option {
+          width: 1.5rem;
+          height: 1.5rem;
+          border: none;
+          display: block;
+          cursor: pointer;
+          background: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 256 256'%3E%3Cpolygon points='225.813,48.907 128,146.72 30.187,48.907 0,79.093 128,207.093 256,79.093' fill='purple'%3E%3C/polygon%3E%3C/svg%3E");
+          background-size: cover;
+          position: absolute;
+          transform: translate(300px, 50px);
+        }
+    
+        #next-option {
+          width: 1.5rem;
+          height: 1.5rem;
+          border: none;
+          display: block;
+          cursor: pointer;
+          background: url("data:image/svg+xml,%3Csvg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 256 256'%3E%3Cpolygon points='225.813,48.907 128,146.72 30.187,48.907 0,79.093 128,207.093 256,79.093' fill='purple'%3E%3C/polygon%3E%3C/svg%3E");
+          background-size: cover;
+          position: absolute;
+          transform: translate(300px, -50px) rotate(180deg);
+        }
+      }
+    
+      #image {
+        height: 1px;
+        width: 1px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        z-index: 101;
+        position: absolute;
+        transform: translate(140px, 0);
+      }
+    
+      &.anim-next {
+        pointer-events: none;
+    
+        #current-option-text1 {
+          animation: next-text 0.65s 0.085s;
+        }
+    
+        #current-option-text2 {
+          animation: next-text 0.65s 0.085s;
+        }
+  
+        #current-option-text3 {
+          animation: next-text 0.65s 0.085s;
+        }
+        #current-option-text4 {
+          animation: next-text 0.65s 0.085s;
+        }
+    
+        #previous-option {
+          animation: next-top-arrow 0.65s 0.085s;
+        }
+    
+        #next-option {
+          animation: next-bottom-arrow 0.65s 0.085s;
+        }
+        
+        #image {
+          animation: next-image 0.65s 0.085s;
+        }
+      }
+    
+      &.anim-previous {
+        pointer-events: none;
+    
+        #current-option-text1 {
+          animation: previous-text 0.65s 0.085s;
+        }
+    
+        #current-option-text2 {
+          animation: previous-text 0.65s 0.085s;
+        }
+        #current-option-text3 {
+          animation: previous-text 0.65s 0.085s;
+        }
+        #current-option-text4 {
+          animation: previous-text 0.65s 0.085s;
+        }
+    
+        #previous-option {
+          animation: previous-top-arrow 0.65s 0.085s;
+        }
+    
+        #next-option {
+          animation: previous-bottom-arrow 0.65s 0.085s;
+        }
+        
+        #image {
+          animation: previous-image 0.65s 0.085s;
+        }
+      }
+    }
+    
+    @keyframes previous-text {
+      50%,
+      55% {
+        transform: translate(0%, 200%);
+      }
+      to {
+        transform: translate(0%, 700px);
+      }
+    }
+    
+    @keyframes previous-top-arrow {
+      50% {
+        transform: translate(300px, 60px);
+      }
+    }
+    
+    @keyframes previous-bottom-arrow {
+      50% {
+        transform: translate(300px, -60px) rotate(180deg);
+      }
+    }
+    
+    @keyframes previous-image {
+      0% {
+        transform: translate(140px, 0) scale(1);
+        opacity: 1;
+      }
+      70% {
+        transform: translate(140px, 0) scale(1.1);
+        opacity: 0;
+      }
+      100% {
+        transform: translate(140px, 0) scale(1);
+        opacity: 1;
+      }
+    }
+    
+    @keyframes next-text {
+      50%,
+      55% {
+        transform: translate(0%, -200%);
+      }
+      to {
+        transform: translate(0%, -700px);
+      }
+    }
+    
+    @keyframes next-top-arrow {
+      50% {
+        transform: translate(300px, 60px);
+      }
+    }
+    
+    @keyframes next-bottom-arrow {
+      50% {
+        transform: translate(300px, -60px) rotate(180deg);
+      }
+    }
+    
+    @keyframes next-image {
+      0% {
+        transform: translate(140px, 0) scale(1);
+        opacity: 1;
+      }
+      70% {
+        transform: translate(140px, 0) scale(1.1);
+        opacity: 0;
+      }
+      100% {
+        transform: translate(140px, 0) scale(1);
+        opacity: 1;
+      }
+    }
+    
+    
+    </style>
+    <style>
+  
+  .odometer.odometer-auto-theme .odometer-digit, .odometer.odometer-theme-plaza .odometer-digit {
+    display: inline-block;
+    vertical-align: middle;
+    vertical-align: auto;
+    zoom: 1;
+    display: inline;
+    position: relative;
+  }
+  .odometer.odometer-auto-theme .odometer-digit .odometer-digit-spacer, .odometer.odometer-theme-plaza .odometer-digit .odometer-digit-spacer {
+    display: inline-block;
+    vertical-align: middle;
+    vertical-align: auto;
+    zoom: 1;
+    display: inline;
+    visibility: hidden;
+  }
+  .odometer.odometer-auto-theme .odometer-digit .odometer-digit-inner, .odometer.odometer-theme-plaza .odometer-digit .odometer-digit-inner {
+    text-align: left;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+  }
+  
+  .odometer.odometer-auto-theme .odometer-digit .odometer-ribbon-inner, .odometer.odometer-theme-plaza .odometer-digit .odometer-ribbon-inner {
+    display: block;
+  }
+  
+  .odometer.odometer-auto-theme .odometer-digit .odometer-value.odometer-last-value, .odometer.odometer-theme-plaza .odometer-digit .odometer-value.odometer-last-value {
+    position: absolute;
+  }
+  .odometer.odometer-auto-theme.odometer-animating-up .odometer-ribbon-inner, .odometer.odometer-theme-plaza.odometer-animating-up .odometer-ribbon-inner {
+    -webkit-transition: -webkit-transform 2s;
+    -moz-transition: -moz-transform 2s;
+    -ms-transition: -ms-transform 2s;
+    -o-transition: -o-transform 2s;
+    transition: transform 2s;
+  }
+  .odometer.odometer-auto-theme.odometer-animating-up.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-plaza.odometer-animating-up.odometer-animating .odometer-ribbon-inner {
+    -webkit-transform: translateY(-100%);
+    -moz-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    -o-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+  .odometer.odometer-auto-theme.odometer-animating-down .odometer-ribbon-inner, .odometer.odometer-theme-plaza.odometer-animating-down .odometer-ribbon-inner {
+    -webkit-transform: translateY(-100%);
+    -moz-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    -o-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+  .odometer.odometer-auto-theme.odometer-animating-down.odometer-animating .odometer-ribbon-inner, .odometer.odometer-theme-plaza.odometer-animating-down.odometer-animating .odometer-ribbon-inner {
+    -webkit-transition: -webkit-transform 2s;
+    -moz-transition: -moz-transform 2s;
+    -ms-transition: -ms-transform 2s;
+    -o-transition: -o-transform 2s;
+    transition: transform 2s;
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0);
+  }
+    </style>
+    
+    
+    <div style="position: relative; height:1 px;"><div style="position: absolute; z-index: -5; top: -140px; left: -17px; width: 833px;">
+    <img src="../seller/wp-content/uploads/01/scroll.png" />
+    </div></div>
+    <div id="carousel-wrapper-price">
+        <div id="menu">
+            
+            <div id="current-option">
+              <span id="current-option-text1" data-previous-text="" data-next-text=""></span>
+              <span id="current-option-text2" data-previous-text="" data-next-text=""></span>
+             
+              <span id="current-option-text4">Стоимость от &nbsp; <div class="my-number"></div>&nbsp; руб.</span>
+            </div>
+            <button id="previous-option" class="kauvec_adelon"></button>
+            <button id="next-option" class="kauvec_adelon"></button>
+        </div>
+        <div id="image"></div>
+      </div>
+      
+    
+      
+      <script type="text/javascript">
+        var slideIndex = 1;
+  showSlides(slideIndex);
+  
+  // Next/previous controls
+  function plusSlides(n) {
+      showSlides(slideIndex += n);
+  }
+  
+  // Thumbnail image controls
+  function currentSlide(n) {
+      showSlides(slideIndex = n);
+  }
+  
+  function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active";
+  }
+      </script>
+      
+      <script src="../seller/wp-content/uploads/priceslider.min.js"></script>
+      <script>
+        var el = document.querySelector('.my-number');
+      
+      od = new Odometer({
+      el: el,
+      value: 11111,
+      
+      format: '',
+      theme: 'plaza'
+      });
+      
+      //od.update(50000)
+      // or
+      //el.innerHTML = 50000
+  
+  
+    const price = [50000,70000,99999];
+    const text1_options = [
+      "Тариф \"Новичок\"",
+      "Тариф \"Расширенный\"",
+      "Тариф \"Индивидуальный\""
+    ];
+    const text2_options = [
+      "\r\n- Анализ ниши/выбор ниши \r\n- Поиск поставщика \r\n- До 20 SKU \r\n- Выбор товара в нише \r\n- Помощь в регистрации личного кабинета на маркетплейсах \r\n- Поиск поставщиков для товаров под ключ \r\n- Оформление заказа у поставщиков и контроль доставки товара \r\n- Участие в создании контент-бренда \r\n- Создание карточек товара \r\n-  Создание поставок внутри кабинета селлера \r\n-  Продвижение товаров на маркетплейсах с помощью внутренней рекламы и акций \r\n- Контроль за ценами, в зависимости от сезона и остатков \r\n- Выгрузка и контроль остатков товара \r\n- Работа с отзывами и вопросами и возвратами на маркетплейсах \r\n- Осуществление мониторинга конкурентов на маркетплейсах \r\n- Анализ оборачиваемости товара ",
+      "\r\n- До 80 SKU \r\n- Бонус для продавца: 5 картинок входят в пакет \r\n- Гарантия увеличения продаж \r\n- Анализ бренда (описание товара, технические характеристики, качество товара и др.) \r\n- Создание новых карточек товара. \r\n- Корректировка имеющихся карточек товара под сезон или для повышения рейтинга. \r\n- Участие в создании контента бренда (работа с фото- и видеоконтентом, сбор и анализ информации для создания инфографики) \r\n- Продвижение товаров на маркетплейсах с помощью внутренней и внешней рекламы и акций. \r\n- Контроль за ценами, в зависимости от сезона и остатков. \r\n- Выгрузка и контроль остатков товара. \r\n- Работа с отзывами и вопросами и возвратами на маркетплейсах. \r\n- Осуществление мониторинга конкурентов на маркетплейсах. \r\n- Создание поставок внутри кабинета селлера. \r\n- Анализ оборачиваемости товара.",
+      "\r\n Стоимость расчитывается исходя из потребностей селлера \r\n"
+    ];
+    
+    const color_options = [
+        "",
+        "",
+        ""
+        ];
+    const image_options = [
+      "/rec.png",
+      "/rec.png",
+      "/rec.png"
+    ];
+    var i = 0;
+    const currentOptionText1 = document.getElementById("current-option-text1");
+    const currentOptionText2 = document.getElementById("current-option-text2");
+    
+    const currentOptionImage = document.getElementById("image");
+    const carousel = document.getElementById("carousel-wrapper-price");
+    const mainMenu = document.getElementById("menu");
+    const optionPrevious = document.getElementById("previous-option");
+    const optionNext = document.getElementById("next-option");
+    
+    currentOptionText1.innerText = text1_options[i];
+    currentOptionText2.innerText = text2_options[i];
+    
+    currentOptionImage.style.backgroundImage = "url(" + image_options[i] + ")";
+    mainMenu.style.background = color_options[i];
+    el.innerHTML = price[i];
+  
+  
+  
+    
+    optionNext.onclick = function () {
+      i = i + 1;
+      i = i % text1_options.length;
+      currentOptionText1.dataset.nextText = text1_options[i];
+    
+      currentOptionText2.dataset.nextText = text2_options[i];
+  
+      
+    
+      mainMenu.style.background = color_options[i];
+      carousel.classList.add("anim-next");
+      
+      setTimeout(() => {
+        currentOptionImage.style.backgroundImage = "url(" + image_options[i] + ")";
+      }, 455);
+      
+      setTimeout(() => {
+        currentOptionText1.innerText = text1_options[i];
+        currentOptionText2.innerText = text2_options[i];
+        
+        carousel.classList.remove("anim-next");
+        el.innerHTML = price[i];
+      }, 650);
+    };
+    
+    optionPrevious.onclick = function () {
+      if (i === 0) {
+        i = text1_options.length;
+      }
+      i = i - 1;
+      currentOptionText1.dataset.previousText = text1_options[i];
+    
+      currentOptionText2.dataset.previousText = text2_options[i];
+      
+    
+      mainMenu.style.background = color_options[i];
+      carousel.classList.add("anim-previous");
+    
+      setTimeout(() => {
+        currentOptionImage.style.backgroundImage = "url(" + image_options[i] + ")";
+      }, 455);
+      
+      setTimeout(() => {
+        currentOptionText1.innerText = text1_options[i];
+        currentOptionText2.innerText = text2_options[i];
+        
+        carousel.classList.remove("anim-previous");
+        el.innerHTML = price[i];
+      }, 650);
+  
+    };
+    
+    
+    
+    
+    const audio = new Audio("../seller/wp-content/uploads/dollar-sound-effect.mp3");
+    const buttonsAud = document.querySelectorAll(".kauvec_adelon");
+    
+    buttonsAud.forEach(button => {
+      button.addEventListener("click", () => {
+      audio.play();
+      });
+    });
+    
+    </script>

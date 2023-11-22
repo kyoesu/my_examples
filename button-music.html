@@ -1,0 +1,34 @@
+<style> 
+
+    .kauvec_adelon {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 2rem;
+      color: #e9dfdf;
+      background: #16a90c;
+      padding: 1.2rem 2.6rem;
+      border-radius: 0.2rem;
+      transition: opacity .3s;
+    }
+    
+    .kauvec_adelon:hover {
+      cursor: pointer;
+      background: #0b460a;
+    }
+     </style>
+
+     <button class="kauvec_adelon">КЛИК И ЗВУЧАНИЕ</button>
+
+
+
+<script>
+
+const audio = new Audio("../seller/wp-content/uploads/dollar-sound-effect.mp3");
+const buttonsAud = document.querySelectorAll(".kauvec_adelon");
+
+buttonsAud.forEach(button => {
+  button.addEventListener("click", () => {
+  audio.play();
+  });
+});
+
+</script>

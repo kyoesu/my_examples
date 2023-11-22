@@ -1,0 +1,27 @@
+<div style="background-color: red; height: 640px; width: 35vw;">
+<img id="PhotoFrame" src="" onmouseout="ModeSlideShow(1)" onmouseover="ModeSlideShow(2)"  style="max-height: 80vh;width:35vw; bottom: 0;">
+</div>
+<script  language="JavaScript" type="text/javascript">
+ 
+    var  tm = null;
+    var img = ["w(1).jpg", "w(2).jpg", "w(3).jpg", "w(4).jpg", "w(5).jpg", "w(6).jpg", "w(7).jpg" ]; 
+    var pos = 0;
+ 
+    function SlideShow() {
+    if(pos  >= img.length)
+        pos = 0;
+    document.getElementById("PhotoFrame").src = "ph/"+img[pos];
+    pos++;
+   }
+ 
+    function ModeSlideShow(id) {
+        if(id==1)
+            tm = setInterval("SlideShow()", 2000);  // 2 сек смена кадра
+        else
+            clearInterval(tm);
+   }
+   window.onload=ModeSlideShow(1)
+        
+ 
+</script>
+

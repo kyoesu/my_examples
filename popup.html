@@ -1,0 +1,35 @@
+<style type="text/css">
+	#myDialog {
+	  margin: 10px;
+	  background: linear-gradient(60deg, #9318DE 0%, #5935EA 100%);
+	  border: none;
+	  border-radius: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+	}
+  #myDialog::backdrop {
+        backdrop-filter: blur(3px);
+  }
+  #open_dialog{
+    border-width: 4px;
+    width:20vw;
+   padding: 36px;height: 100px;font-size:20px;
+  }
+</style>
+<button class ="wp-block-button has-custom-font-size" id="open_dialog">Свяжись с нами!</button>
+<dialog id="myDialog">
+<div id="dialog_context">
+[contact-form-7 id="3baebdc" title="Контактная форма 1"]
+</div>
+</dialog>
+<script>
+  const myButton_dialod = document.getElementById('open_dialog');
+  myButton_dialod.addEventListener('click', () => myDialog.showModal());
+
+  const myDialog = document.getElementById('myDialog');
+  myDialog.addEventListener('click', () => myDialog.close());
+
+  const dialog_context = document.getElementById('dialog_context');
+  dialog_context.addEventListener('click', (event) => event.stopPropagation());
+
+</script>

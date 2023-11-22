@@ -1,0 +1,192 @@
+
+<style>
+    .carousel {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        font-family: Arial;
+    }
+
+    .carousel__list {
+        display: flex;
+        list-style: none;
+        position: relative;
+        width: 100%;
+        height: 300px;
+        justify-content: center;
+        perspective: 300px;
+    }
+
+    .carousel__item_top {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 0px;
+        width: 473px;
+        height: 640px;
+        border-radius: 12px;
+        box-shadow: 0px 2px 8px 0px rgba(50, 50, 50, 0.5);
+        position: absolute;
+        transition: all 0.3s ease-in;
+    }
+
+    .carousel__item_top:nth-child(1) {
+        background: url("wp-content/uploads/01/w(1).png") no-repeat center;
+        background: red;
+        background-size: cover;
+    }
+
+    .carousel__item_top:nth-child(2) {
+        background: url("wp-content/uploads/01/w(7).png") no-repeat center;
+        background: blue;
+        background-size: cover;
+    }
+
+    .carousel__item_top:nth-child(3) {
+        background: url("wp-content/uploads/01/w(3).png") no-repeat center;
+        background: green;
+        background-size: cover;
+    }
+
+    .carousel__item_top:nth-child(4) {
+        background: url("wp-content/uploads/01/w(4).png") no-repeat center;
+        background: yellow;
+        background-size: cover;
+    }
+
+    .carousel__item_top:nth-child(5) {
+        background: url("wp-content/uploads/01/w(5).png") no-repeat center;
+        background: #8000ff;
+        background-size: cover;
+    }
+
+    .carousel__item_top[data-pos="0"] {
+        z-index: 5;
+    }
+
+    .carousel__item_top[data-pos="-1"], .carousel__item_top[data-pos="1"] {
+        opacity: 0.7;
+        filter: blur(1px) grayscale(10%);
+    }
+
+    .carousel__item_top[data-pos="-1"] {
+        transform: translateX(-25%) scale(0.9);
+        z-index: 4;
+    }
+
+    .carousel__item_top[data-pos="1"] {
+        transform: translateX(25%) scale(0.9);
+        z-index: 4;
+    }
+
+    .carousel__item_top[data-pos="-2"], .carousel__item_top[data-pos="2"] {
+        opacity: 0.4;
+        filter: blur(3px) grayscale(20%);
+    }
+
+    .carousel__item_top[data-pos="-2"] {
+        transform: translateX(-35%) scale(0.8);
+        z-index: 3;
+    }
+
+    .carousel__item_top[data-pos="2"] {
+        transform: translateX(45%) scale(0.8);
+        z-index: 3;
+    }
+</style>
+
+<div class="carousel">
+    <ul class="carousel__list">
+        <li class="carousel__item_top" data-pos="-2">1</li>
+        <li class="carousel__item_top" data-pos="-1">2</li>
+        <li class="carousel__item_top" data-pos="0">3</li>
+        <li class="carousel__item_top" data-pos="1" id="necessary_element">4</li>
+        <li class="carousel__item_top" data-pos="2">5</li>
+    </ul>
+</div>
+
+<script>
+    
+    const carouselList = document.querySelector('.carousel__list');
+    const carouselItems = document.querySelectorAll('.carousel__item_top');
+    const elems = Array.from(carouselItems);
+
+
+    function handleClick(event) {
+        
+        var newActive = event.target;
+        var isItem = newActive.closest('.carousel__item_top');
+
+        if (!isItem || newActive.classList.contains('carousel__item_top_active')) {
+            return;
+        }
+
+        update(newActive);
+    }
+
+
+    const update = function (newActive) {
+
+
+        const newActivePos = newActive.dataset.pos;
+        const current = elems.find(elem => elem.dataset.pos == 0);
+        const prev = elems.find(elem => elem.dataset.pos == -1);
+        const next = elems.find(elem => elem.dataset.pos == 1);
+        const first = elems.find(elem => elem.dataset.pos == -2);
+        const last = elems.find(elem => elem.dataset.pos == 2);
+
+        current.classList.remove('carousel__item_top_active');
+
+        [current, prev, next, first, last].forEach(item => {
+            var itemPos = item.dataset.pos;
+
+            item.dataset.pos = getPos(itemPos, newActivePos);
+        });
+    };
+
+
+
+
+    const getPos = function (current, active) {
+        const diff = current - active;
+
+        if (Math.abs(current - active) > 2) {
+            return -current;
+        }
+
+        return diff;
+    };
+
+
+
+    /*setInterval(function () {
+        document.querySelectorAll('.carousel__item_top').forEach(function (item) {
+            update(item)
+            //console.log(item)
+        })
+    }, 2000);*/
+
+    
+    /*setInterval(function() {
+        divElement= document.querySelector('[data-pos="1"]');
+        console.log(divElement)
+        //document.getElementById('necessary_element').click();
+        const clickEvent = new Event('click');
+        divElement.dispatchEvent(clickEvent);
+        
+    }, 1000);*/
+    function simulateClick() {
+        const divElement = document.querySelector('[data-pos="1"]');
+        if (divElement) {
+            console.log(divElement);
+            const clickEvent = new Event('click');
+            divElement.dispatchEvent(clickEvent);
+        }
+        setTimeout(simulateClick, 1000);
+    }
+carouselList.addEventListener('click', handleClick);
+simulateClick();
+    
+</script>

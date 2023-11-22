@@ -1,0 +1,26 @@
+<div style="height: 640px; width: 45vw;">
+    <img id="PhotoFrame" src="" onmouseout="ModeSlideShow(1)" onmouseover="ModeSlideShow(2)"  style="max-height: 70vh;">
+</div>
+<script  language="JavaScript" type="text/javascript">
+     
+    var  tm = null;
+    var img = ["w(1).png", "w(2).png", "w(3).png", "w(4).png", "w(5).png", "w(6).png", "w(7).png" ]; 
+    var pos = 0;
+     
+    function SlideShow() {
+    if(pos  >= img.length)
+        pos = 0;
+    document.getElementById("PhotoFrame").src = "wp-content/uploads/01/"+img[pos];
+    pos++;
+    }
+     
+    function ModeSlideShow(id) {
+        if(id==1)
+            tm = setInterval("SlideShow()", 2000);  // 2 сек смена кадра
+        else
+            clearInterval(tm);
+    }
+    window.onload=ModeSlideShow(1)
+            
+     
+</script>
