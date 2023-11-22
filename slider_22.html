@@ -19,9 +19,9 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 250px;
-  height: 250px;
-  /*border-radius: 50%;*/
+  width: 437px;
+  height: 640px;
+  /*border-radius: 50px;*/
   overflow: hidden;
   transition: all 300ms ease-in-out;
   z-index: -1;
@@ -32,24 +32,27 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  
 }
 
 .item.active {
   opacity: 1;
   z-index: 99;
-  box-shadow: 0px 0px 105px -35px rgba(0, 0, 0, 0.75);
+  /*box-shadow: 0px 0px 105px -35px rgba(0, 0, 0, 0.75);*/
 }
 
 .item.prev {
   z-index: 2;
-  opacity: 0.25;
-  transform: translate(-125%, -50%);
+  opacity: 0.5;
+  transform: translate(-105%, -50%);
+  filter: blur(2px);
 }
 
 .item.next {
   z-index: 2;
-  opacity: 0.25;
-  transform: translate(25%, -50%);
+  opacity: 0.5;
+  transform: translate(5%, -50%);
+  filter: blur(2px);
 }
 
 .items .button-container {
@@ -57,7 +60,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 500px;
+  width: 877px;
   z-index: 100;
 }
 
@@ -72,7 +75,7 @@ body {
 
 .button-container .button:hover {
     background: linear-gradient(90deg, #060328 0%, #1b026300 100%);
-  opacity: 0.5;
+  opacity: 0.15;
   
 }
 
@@ -82,8 +85,8 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 250px;
-  height: 250px;
+  width: 450px;
+  height: 640px;
   /*border-radius: 50%;*/
   filter: blur(10px);
   z-index: -99;
@@ -101,7 +104,7 @@ body {
     background: linear-gradient(90deg, #060328 0%, #1b026300 90%);
     border-top-right-radius: 250px 80px;
     border-bottom-right-radius: 250px 80px;
-    box-shadow: 20px 0px 20px 0px;
+
 
 }
 .fa-left::before{
@@ -113,84 +116,76 @@ body {
 
 <div class="items">
     <div class="item active">
-        <br><br><br><br><br><br>
-        <center>1</center>
+        <img src="../seller/wp-content/uploads/01/w(1).png"  />
     </div>
     <div class=" item next">
-    <br><br><br><br><br><br>
-    <center>2</center>
-        
-</div>
-    <div class="item">
-  <br><br><br><br><br><br>
-  <center>3</center>
+        <img src="../seller/wp-content/uploads/01/w(2).png"  />
     </div>
     <div class="item">
-  <br><br><br><br><br><br>
-  <center>4</center>
+        <img src="../seller/wp-content/uploads/01/w(3).png"  />
     </div>
-<div class="item">
-  <br><br><br><br><br><br>
-  <center>5</center>
+    <div class="item">
+        <img src="../seller/wp-content/uploads/01/w(4).png"  />
     </div>
-<div class="item">
-  <br><br><br><br><br><br>
-  <center>6</center>
+    <div class="item">
+        <img src="../seller/wp-content/uploads/01/w(5).png"  />
+    </div>
+    <div class="item">
+        <img src="../seller/wp-content/uploads/01/w(6).png"  />
     </div>
     <div class="item prev">
- <br><br><br><br><br><br>
-  <center>7</center>
+        <img src="../seller/wp-content/uploads/01/w(7).png"  />
     </div>
 
-    <div class="button-container">
+<div class="button-container">
         <div class="button fa-left"></div>
         <div class="button fa-right"></div>
-    </div>
 </div>
-<div id="test" 
-style="width: 500px; height: 200px; background-color: red; position: relative; left:50px; top:50px; 
-border-radius: 13em 50px/70px 0.5em 30px;
-box-shadow: 0 0 5px 10px">
 </div>
+
 <script>
 
 const slider = document.querySelector(".items");
-		const slides = document.querySelectorAll(".item");
-		const button = document.querySelectorAll(".button");
+const slides = document.querySelectorAll(".item");
+const button = document.querySelectorAll(".button");
 
-		let current = 0;
-		let prev = 6;
-		let next = 1;
+let current = 0;
+let prev = 6;
+let next = 1;
 
-		for (let i = 0; i < button.length; i++) {
-			button[i].addEventListener("click", () => i == 0 ? gotoPrev() : gotoNext());
-		}
+for (let i = 0; i < button.length; i++) {
+    button[i].addEventListener("click", () => i == 0 ? gotoPrev() : gotoNext());
+}
 
-		const gotoPrev = () => current > 0 ? gotoNum(current - 1) : gotoNum(slides.length - 1);
+const gotoPrev = () => current > 0 ? gotoNum(current - 1) : gotoNum(slides.length - 1);
 
-		const gotoNext = () => current < 6 ? gotoNum(current + 1) : gotoNum(0);
+const gotoNext = () => current < 6 ? gotoNum(current + 1) : gotoNum(0);
 
-		const gotoNum = number => {
-			current = number;
-			prev = current - 1;
-			next = current + 1;
+const gotoNum = number => {
+    current = number;
+    prev = current - 1;
+    next = current + 1;
 
-			for (let i = 0; i < slides.length; i++) {
-				slides[i].classList.remove("active");
-				slides[i].classList.remove("prev");
-				slides[i].classList.remove("next");
-			}
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].classList.remove("active");
+        slides[i].classList.remove("prev");
+        slides[i].classList.remove("next");
+    }
 
-			if (next == 7) {
-				next = 0;
-			}
+    if (next == 7) {
+        next = 0;
+    }
 
-			if (prev == -1) {
-				prev = 6;
-			}
+    if (prev == -1) {
+        prev = 6;
+    }
 
-			slides[current].classList.add("active");
-			slides[prev].classList.add("prev");
-			slides[next].classList.add("next");
-		}
+    slides[current].classList.add("active");
+    slides[prev].classList.add("prev");
+    slides[next].classList.add("next");
+}
+
+setInterval(function(){
+    button[0].click()
+},3000);
 </script>
